@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vocabulario B1 Preliminary</title>
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+</head>
+<body>
+<main class="wrap">
+<h1>Vocabulario para el B1 Preliminary</h1>
+<p>El B1 Preliminary se basa en una lista de unas <b>3.000 palabras</b>. Aquí tienes las más útiles por temas, los <b>phrasal verbs</b> más frecuentes, las <b>collocations</b> que caen en la Parte 5 de Reading, las palabras que más se confunden y las frases que te darán puntos en Writing y Speaking. Usa las tarjetas (🔊 para oír la pronunciación) y haz los tests.</p>
+
+<div class="tabs-root" id="vtabs">
+<div class="tabs"><button>Temas</button><button>Phrasal verbs</button><button>Collocations</button><button>Palabras confusas</button><button>Frases útiles</button></div>
+
+<section class="tabpanel">
+  <h2>Vocabulario por temas</h2>
+  <p>Elige un tema para estudiarlo con tarjetas. Debajo tienes la lista completa con traducción.</p>
+  <div class="row" id="topicBtns"></div>
+  <div id="topicFlash"></div>
+  <div id="topicTable"></div>
+</section>
+
+<section class="tabpanel">
+  <h2>Phrasal verbs</h2>
+  <p>Verbo + partícula (<i>up, out, off, on…</i>) con un significado nuevo. Aparecen mucho en el Listening y en la Parte 5 de Reading. Apréndelos con un ejemplo, no sueltos.</p>
+  <div id="pv"></div>
+  <div class="card"><b>✍ Test</b><p class="instr">Elige el phrasal verb correcto.</p><div id="pvQuiz"></div></div>
+</section>
+
+<section class="tabpanel">
+  <h2>Collocations: palabras que van juntas</h2>
+  <p>La Parte 5 de Reading pregunta mucho qué palabra «va» con otra. Las cuatro opciones significan casi lo mismo, pero solo una se combina bien.</p>
+  <div id="coll"></div>
+  <div class="card"><b>✍ Test</b><p class="instr">Elige la palabra correcta.</p><div id="collQuiz"></div></div>
+</section>
+
+<section class="tabpanel">
+  <h2>Palabras confusas y falsos amigos</h2>
+  <p>Parejas que los hispanohablantes confunden a menudo. Muchas aparecen como distractores en la Parte 5.</p>
+  <div id="conf"></div>
+  <div class="card"><b>✍ Test</b><div id="confQuiz"></div></div>
+</section>
+
+<section class="tabpanel">
+  <h2>Frases útiles</h2>
+  <p>Apréndelas de memoria: te sirven en el Writing (email, artículo, historia) y en el Speaking.</p>
+  <div id="func"></div>
+</section>
+</div>
+<p><a class="btn" href="reading.html">Siguiente: Reading →</a></p>
+</main>
+<script src="assets/app.js"></script>
+<script>
+const TOPICS = {
+ 'Personalidad y sentimientos': [['confident','seguro de sí mismo'],['reliable','fiable'],['generous','generoso'],['patient','paciente'],['selfish','egoísta'],['honest','honrado, sincero'],['polite / rude','educado / maleducado'],['cheerful','alegre'],['sensible','sensato'],['sensitive','sensible'],['ashamed','avergonzado (por algo malo)'],['embarrassed','avergonzado (situación incómoda)'],['disappointed','decepcionado'],['relieved','aliviado'],['upset','disgustado'],['annoyed','molesto'],['proud','orgulloso'],['grateful','agradecido'],['jealous','celoso, envidioso'],['get on well with','llevarse bien con']],
+ 'Casa y vida diaria': [['household chores','tareas domésticas'],['do the washing-up','fregar los platos'],['do the laundry','hacer la colada'],['tidy up','ordenar'],['vacuum','pasar la aspiradora'],['neighbourhood','barrio'],['flatmate','compañero de piso'],['landlord','casero'],['rent','alquiler'],['bills','facturas'],['furniture','muebles'],['heating','calefacción'],['balcony','balcón'],['downstairs / upstairs','abajo / arriba'],['move house','mudarse'],['commute','ir y volver del trabajo'],['routine','rutina'],['oversleep','quedarse dormido'],['alarm clock','despertador'],['spare room','habitación de invitados']],
+ 'Educación': [['primary / secondary school','primaria / secundaria'],['university degree','grado universitario'],['subject','asignatura'],['term','trimestre'],['timetable','horario'],['revise','repasar (para un examen)'],['take / sit an exam','hacer un examen'],['pass / fail','aprobar / suspender'],['marks / grades','notas'],['certificate','certificado'],['lecture','clase magistral'],['tutor','tutor'],['assignment','trabajo, tarea'],['essay','redacción'],['skills','habilidades'],['course','curso'],['scholarship','beca'],['graduate','licenciarse; licenciado'],['knowledge','conocimiento'],['cheat','copiar, hacer trampa']],
+ 'Trabajo': [['apply for a job','solicitar un trabajo'],['application form','formulario de solicitud'],['CV','currículum'],['interview','entrevista'],['employer / employee','empresario / empleado'],['colleague','compañero de trabajo'],['salary / wages','sueldo (mensual / por horas)'],['part-time / full-time','media jornada / jornada completa'],['experience','experiencia'],['career','carrera profesional'],['promotion','ascenso'],['retire','jubilarse'],['unemployed','en paro'],['earn a living','ganarse la vida'],['shift','turno'],['volunteer','voluntario'],['training','formación'],['deadline','fecha límite'],['company','empresa'],['customer','cliente']],
+ 'Viajes y alojamiento': [['journey','trayecto'],['trip','viaje, excursión'],['travel','viajar'],['destination','destino'],['abroad','en el extranjero'],['book in advance','reservar con antelación'],['accommodation','alojamiento'],['youth hostel','albergue'],['check in / check out','registrarse / dejar el hotel'],['single / double room','habitación individual / doble'],['luggage','equipaje'],['delay','retraso'],['cancel','cancelar'],['flight','vuelo'],['boarding pass','tarjeta de embarque'],['sightseeing','turismo'],['guided tour','visita guiada'],['crowded','abarrotado'],['scenery','paisaje'],['get lost','perderse']],
+ 'Salud y deporte': [['fit','en forma'],['keep fit','mantenerse en forma'],['diet','dieta, alimentación'],['injury','lesión'],['injure / hurt','lesionarse / hacerse daño'],['sprain your ankle','torcerse el tobillo'],['symptoms','síntomas'],['recover','recuperarse'],['prescription','receta'],['painkiller','analgésico'],['stressed','estresado'],['work out','hacer ejercicio'],['gym','gimnasio'],['competition','competición'],['beat (sb)','ganar a alguien'],['win (a match)','ganar (un partido)'],['coach','entrenador'],['referee','árbitro'],['training session','entrenamiento'],['spectators','espectadores']],
+ 'Medio ambiente': [['environment','medio ambiente'],['pollution','contaminación'],['climate change','cambio climático'],['global warming','calentamiento global'],['recycle','reciclar'],['waste','residuos; desperdiciar'],['rubbish','basura'],['plastic bag','bolsa de plástico'],['energy','energía'],['solar panel','placa solar'],['save energy','ahorrar energía'],['protect','proteger'],['endangered species','especie en peligro'],['wildlife','fauna'],['habitat','hábitat'],['flood','inundación'],['drought','sequía'],['public transport','transporte público'],['litter','basura en la calle'],['environmentally friendly','respetuoso con el medio ambiente']],
+ 'Tecnología y medios': [['device','dispositivo'],['app','aplicación'],['download / upload','descargar / subir'],['log in','iniciar sesión'],['password','contraseña'],['social media','redes sociales'],['post','publicar; publicación'],['followers','seguidores'],['online / offline','en línea / sin conexión'],['website','página web'],['search engine','buscador'],['blog','blog'],['podcast','pódcast'],['headline','titular'],['article','artículo'],['journalist','periodista'],['advert','anuncio'],['screen time','tiempo de pantalla'],['charger','cargador'],['update','actualizar']],
+ 'Ocio y cultura': [['exhibition','exposición'],['gallery','galería'],['audience','público'],['performance','actuación'],['play (theatre)','obra de teatro'],['stage','escenario'],['series','serie'],['episode','episodio'],['novel','novela'],['author','autor'],['plot','argumento'],['character','personaje'],['review','reseña, crítica'],['band','grupo musical'],['festival','festival'],['ticket office','taquilla'],['sold out','agotado'],['hobby','afición'],['take up','empezar (una afición)'],['be into','ser aficionado a']],
+ 'Compras y dinero': [['afford','permitirse'],['bargain','ganga'],['discount','descuento'],['refund','reembolso'],['receipt','ticket, recibo'],['exchange','cambiar (un producto)'],['try on','probarse'],['fit / suit','quedar bien (talla / estilo)'],['second-hand','de segunda mano'],['brand','marca'],['shop assistant','dependiente'],['queue','cola; hacer cola'],['cash','efectivo'],['change','cambio (dinero)'],['save','ahorrar'],['spend','gastar'],['borrow / lend','pedir prestado / prestar'],['owe','deber (dinero)'],['online shopping','compras por internet'],['delivery','entrega, envío']],
+};
+const PV = [['get up','levantarse','I get up at seven.'],['wake up','despertarse','I woke up late.'],['look after','cuidar','She looks after her little brother.'],['look for','buscar','I\'m looking for my keys.'],['look forward to','tener ganas de','I\'m looking forward to the holidays.'],['find out','averiguar, enterarse','I found out the truth.'],['give up','dejar (un hábito), rendirse','He gave up smoking.'],['take up','empezar (una afición)','She took up yoga.'],['turn up','presentarse, aparecer','He turned up late.'],['turn down','rechazar; bajar (volumen)','She turned down the offer.'],['put off','aplazar','We put off the meeting.'],['set off','salir (de viaje)','We set off at dawn.'],['carry on','continuar','Carry on working.'],['run out of','quedarse sin','We\'ve run out of milk.'],['get on (with)','llevarse bien (con)','I get on well with my sister.'],['grow up','crecer, criarse','I grew up in Murcia.'],['bring up','criar; sacar (un tema)','She was brought up by her aunt.'],['come across','encontrarse por casualidad','I came across an old photo.'],['pick up','recoger','I\'ll pick you up at eight.'],['fill in','rellenar (formulario)','Fill in this form.'],['break down','averiarse','The car broke down.'],['work out','hacer ejercicio; resolver','I work out at the gym. I can\'t work out the answer.'],['make up','inventar; hacer las paces','He made up an excuse.'],['take off','despegar; quitarse','The plane took off. Take off your shoes.'],['go off','sonar (alarma); estropearse','The alarm went off at six.'],['get over','superar, recuperarse de','She got over the flu.'],['sort out','resolver, organizar','I need to sort out my room.'],['check in','registrarse','We checked in at the hotel.'],['call back','devolver la llamada','I\'ll call you back later.'],['hang out','pasar el rato','We hang out at the park.']];
+const COLL = [['make','a decision, a mistake, progress, an effort, money, a complaint, a noise, friends, an appointment, sure'],['do','homework, exercise, research, your best, a course, damage, business, the housework, someone a favour'],['take','a photo, part in, place, care of, a break, an exam, notice of, advantage of, your time'],['have','a good time, an argument, a look, fun, a rest, a go, a chat, an accident'],['pay','attention, a visit, a compliment, by card, in cash'],['keep','in touch, a secret, a promise, calm, fit'],['catch','a bus, a cold, someone\'s attention'],['save','money, time, energy, a file'],['spend','time, money'],['waste','time, money, food'],['break','a record, a promise, the rules, the news'],['tell','the truth, a lie, a story, a joke'],['heavy','rain, traffic, smoker'],['strong','coffee, wind, accent'],['high / low','price, temperature, salary']];
+const CONF = [['actually / currently','en realidad / actualmente','Actually, I don\'t agree. She currently lives in Bath.'],['sensible / sensitive','sensato / sensible','A sensible decision. She\'s very sensitive.'],['assist / attend','ayudar / asistir a','I attended the meeting.'],['remember / remind','recordar / recordarle algo a alguien','Remind me to call Ana.'],['rob / steal','robar (a alguien, un sitio) / robar (algo)','They robbed a bank. They stole my bike.'],['raise / rise','levantar, subir (algo) / subir (solo)','Raise your hand. Prices rise.'],['lose / miss','perder (un objeto, un partido) / perder (bus, clase), echar de menos','I lost my keys. I missed the train.'],['win / earn / beat','ganar (premio) / ganar (dinero) / ganar a alguien','We beat them and won the cup.'],['fun / funny','divertido / gracioso','The trip was fun. The joke was funny.'],['career / degree','carrera profesional / carrera universitaria','I\'m doing a degree in law.'],['carpet / folder','alfombra / carpeta',''],['library / bookshop','biblioteca / librería',''],['travel / trip / journey','viajar / viaje, excursión / trayecto','The journey took two hours.'],['say / tell / speak / talk','decir / decir a alguien / hablar (idioma, formal) / charlar','She told me she speaks French.'],['bring / take / fetch','traer / llevar / ir a buscar','Can you fetch my bag?'],['borrow / lend','pedir prestado / prestar','Can you lend me €10?'],['affect / effect','afectar (verbo) / efecto (nombre)','Stress affects sleep. A side effect.'],['notice / news','darse cuenta / noticias','I noticed a change. Good news!'],['economic / cheap','económico (de la economía) / barato','Economic crisis. A cheap hotel.'],['realise / carry out','darse cuenta / realizar','I realised I was wrong. We carried out a survey.']];
+const FUNC = [
+ ['Email informal: empezar','Hi Sam, / Dear Laura, · Thanks for your email. · It was great to hear from you. · Sorry I haven\'t written for ages. · How are things?'],
+ ['Email informal: terminar','Write back soon. · Let me know what you think. · I can\'t wait to see you. · See you soon. · Best wishes, / Love, / Take care,'],
+ ['Responder a las notas','Yes, I\'d love to! · That\'s a great idea. · I\'m afraid I can\'t because… · I think the best option is… · Why don\'t we…? · How about…?'],
+ ['Dar opinión','In my opinion, … · I think / I believe that… · Personally, I prefer… · I\'m sure that… · As far as I\'m concerned, …'],
+ ['Artículo: atraer al lector','Have you ever wondered…? · Imagine… · Let me tell you about… · Most people think… but…'],
+ ['Artículo: concluir','All in all, … · To sum up, … · So, if you ever get the chance, … · I\'d definitely recommend it.'],
+ ['Historia: tiempo y secuencia','At first, … · A few minutes later, … · Meanwhile, … · Suddenly, … · As soon as… · In the end, … · Eventually, …'],
+ ['Historia: emociones','I couldn\'t believe my eyes. · My heart was beating fast. · I was so relieved. · It was the best day of my life. · I\'ll never forget it.'],
+ ['Speaking: describir una foto','In this photo I can see… · In the foreground / background… · On the left / right… · It looks like… · They seem to be… · Maybe they are…'],
+ ['Speaking: tarea en pareja','Shall we start with…? · What do you think about…? · I agree with you. · That\'s true, but… · I\'m not so sure. · So, have we decided? · Let\'s choose…'],
+ ['Speaking: ganar tiempo','That\'s an interesting question. · Let me think… · Well, it depends. · I\'ve never thought about that, but…'],
+ ['Speaking: cuando no sabes una palabra','I don\'t know the word, but it\'s a thing you use to… · It\'s a kind of… · It\'s similar to…'],
+];
+document.addEventListener('DOMContentLoaded', () => {
+  const names = Object.keys(TOPICS);
+  const showTopic = n => { flashcards($('#topicFlash'), TOPICS[n].map(([en, es]) => [en, es])); vocabTable($('#topicTable'), TOPICS[n], ['Inglés', 'Español']); $$('#topicBtns button').forEach(b => b.classList.toggle('ghost', b.textContent !== n)); };
+  $('#topicBtns').innerHTML = names.map(n => `<button class="btn sm ghost">${n}</button>`).join('');
+  $$('#topicBtns button').forEach(b => b.onclick = () => showTopic(b.textContent));
+  showTopic(names[0]);
+  vocabTable($('#pv'), PV, ['Phrasal verb', 'Significado', 'Ejemplo']);
+  practice($('#pvQuiz'), 'p1', { text: `We've [1] of bread. Can you buy some? I'm really looking [2] to the concert. My grandmother [3] me when my parents work. Our flight was at six, so we [4] off very early. He was so tired that he [5] up and went home. Can you [6] in this form, please? I [7] up in a small town near the sea.`,
+    opts: [['run out', 'given up', 'put off', 'turned down'], ['forward', 'after', 'up', 'out'], ['looks after', 'looks for', 'looks up', 'looks forward'], ['set', 'took', 'got', 'put'], ['gave', 'took', 'turned', 'made'], ['fill', 'find', 'put', 'take'], ['grew', 'brought', 'got', 'took']], ans: [0, 0, 0, 0, 0, 0, 0] });
+  vocabTable($('#coll'), COLL, ['Palabra', 'Va con…']);
+  practice($('#collQuiz'), 'p1', { text: `I need to [1] a decision soon. She [2] part in a talent show. Please [3] attention to the instructions. We must [4] in touch after the course. Sorry, I [5] a mistake. Thousands of people [6] a visit to the museum every year. There was [7] traffic on the motorway.`,
+    opts: [['make', 'do', 'take', 'have'], ['took', 'made', 'did', 'had'], ['pay', 'give', 'make', 'take'], ['keep', 'stay', 'hold', 'stop'], ['made', 'did', 'took', 'had'], ['pay', 'make', 'do', 'give'], ['heavy', 'strong', 'big', 'hard']], ans: [0, 0, 0, 0, 0, 0, 0] });
+  vocabTable($('#conf'), CONF, ['Palabras', 'Diferencia', 'Ejemplo']);
+  practice($('#confQuiz'), 'p1', { text: `[1], I'm not Spanish – I'm Mexican. Can you [2] me to buy some milk later? Someone [3] my phone on the bus! I [4] the bus and had to walk. Wearing a helmet is a very [5] idea. We [6] the other team 3–0.`,
+    opts: [['Actually', 'Currently', 'Really', 'Nowadays'], ['remind', 'remember', 'recall', 'mind'], ['stole', 'robbed', 'took off', 'kept'], ['missed', 'lost', 'left', 'failed'], ['sensible', 'sensitive', 'sense', 'sensational'], ['beat', 'won', 'earned', 'gained']], ans: [0, 0, 0, 0, 0, 0] });
+  $('#func').innerHTML = FUNC.map(([h, t]) => `<div class="card"><b>${h}</b><p>${t.split(' · ').map(x => `<span data-say>${x}</span>`).join(' · ')}</p></div>`).join('');
+  speakables($('#func'));
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Plan de 50 días · B1 Preliminary</title>
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+</head>
+<body>
+<main class="wrap">
+<h1>Plan de 50 días</h1>
+<p>Antes de empezar el plan, dedica <b>3–4 días</b> a leer toda la web (secciones 1 a 7) y hacer los ejercicios de práctica. Después, cada día: <b>un examen completo + un repaso corto</b>. Marca cada día al terminarlo; se guarda en tu navegador.</p>
+
+<h2>Rutina diaria (≈ 2 h 45)</h2>
+<div class="table-wrap"><table>
+<tr><th>Bloque</th><th>Tiempo</th><th>Qué hacer</th></tr>
+<tr><td>1. Examen del día</td><td>≈ 2 h 15</td><td>Reading (45′) · Writing (45′) · Listening (30′) · Speaking (15′ con grabadora)</td></tr>
+<tr><td>2. Análisis de errores</td><td>15′</td><td>Revisa cada fallo y apunta en un cuaderno la palabra, la collocation o la regla que no sabías.</td></tr>
+<tr><td>3. Repaso dirigido</td><td>15′</td><td>El tema del día de la tabla de abajo.</td></tr>
+</table></div>
+<div class="tip"><b>¿Poco tiempo?</b> Haz el examen en dos días (día A: Reading + Writing; día B: Listening + Speaking). Lo importante es la <b>constancia</b>.</div>
+<div class="key"><b>La última semana:</b> no aprendas nada nuevo. Repite los exámenes en los que sacaste peor nota y repasa tu cuaderno de errores.</div>
+
+<h2>Calendario</h2>
+<div class="table-wrap"><table id="plan"><tr><th>✔</th><th>Día</th><th>Examen</th><th>Repaso dirigido</th></tr></table></div>
+</main>
+<script src="assets/app.js"></script>
+<script>
+const TOPICS = [
+ ['Present simple y continuous','gramatica.html#g1'],['Past simple, continuous, used to','gramatica.html#g2'],['Vocabulario: personalidad y sentimientos','vocabulario.html'],['Reading Parte 1','reading.html'],['Present perfect','gramatica.html#g3'],
+ ['Writing Parte 1: el email','writing.html'],['Phrasal verbs (1)','vocabulario.html'],['Past perfect','gramatica.html#g4'],['Reading Parte 2','reading.html'],['Listening Parte 1','listening.html'],
+ ['El futuro','gramatica.html#g5'],['Vocabulario: casa y vida diaria','vocabulario.html'],['Speaking Parte 1','speaking.html'],['Modales de obligación','gramatica.html#g6'],['Writing Parte 2: artículo','writing.html'],
+ ['Modales de deducción','gramatica.html#g7'],['Collocations (make, do, take…)','vocabulario.html'],['Reading Parte 3','reading.html'],['Speaking Parte 2: describir fotos','speaking.html'],['Condicionales','gramatica.html#g8'],
+ ['Vocabulario: educación y trabajo','vocabulario.html'],['Writing Parte 2: historia','writing.html'],['La pasiva','gramatica.html#g9'],['Listening Parte 2','listening.html'],['Reading Parte 4','reading.html'],
+ ['Estilo indirecto','gramatica.html#g10'],['Phrasal verbs (2)','vocabulario.html'],['Speaking Parte 3','speaking.html'],['Relativos','gramatica.html#g11'],['Vocabulario: viajes','vocabulario.html'],
+ ['Comparativos, too/enough, so/such','gramatica.html#g12'],['Reading Parte 5','reading.html'],['Listening Parte 3','listening.html'],['-ing o to','gramatica.html#g13'],['Palabras confusas','vocabulario.html'],
+ ['Cuantificadores y artículos','gramatica.html#g14'],['Reading Parte 6','reading.html'],['Speaking Parte 4','speaking.html'],['Preposiciones dependientes','gramatica.html#g15'],['Vocabulario: medio ambiente y tecnología','vocabulario.html'],
+ ['Conectores','gramatica.html#g16'],['Listening Parte 4','listening.html'],['Question tags y preguntas indirectas','gramatica.html#g17'],['have something done, used to','gramatica.html#g18'],['Errores típicos de Writing','writing.html'],
+ ['Repaso: tus errores de gramática','gramatica.html'],['Repaso: tus errores de vocabulario','vocabulario.html'],['Frases útiles de Speaking','speaking.html'],['Errores típicos del examen','guia.html#errores'],['Día del examen: logística','guia.html#dia']];
+document.addEventListener('DOMContentLoaded', () => {
+  const done = store.get('plan', {}); const res = store.get('results', {});
+  const t = $('#plan');
+  TOPICS.forEach(([name, href], i) => {
+    const n = i + 1; const r = res[n];
+    t.insertAdjacentHTML('beforeend', `<tr><td><input type="checkbox" data-n="${n}" ${done[n] ? 'checked' : ''}></td><td>${n}</td><td><a href="examen.html?n=${n}">Examen ${n}</a>${r && r.overall ? ` <span class="pill">${r.overall}</span>` : ''}</td><td><a href="${href}">${name}</a></td></tr>`);
+  });
+  $$('input[type=checkbox]', t).forEach(c => c.onchange = () => { const d = store.get('plan', {}); d[c.dataset.n] = c.checked; store.set('plan', d); });
+});
+</script>
+</body>
+</html>

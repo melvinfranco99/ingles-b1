@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Listening · B1 Preliminary</title>
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+</head>
+<body>
+<main class="wrap">
+<h1>Listening</h1>
+<p><b>≈ 30 minutos · 4 partes · 25 preguntas · cada audio se escucha 2 veces.</b> Necesitas unas <b>18/25</b> para llegar a 140.</p>
+<div class="tip"><b>Cómo funciona el audio aquí:</b> pulsa ▶ y tu navegador leerá el texto con voces en inglés. Empieza en velocidad <i>lenta</i> y pasa a <i>normal</i> cuando te sientas seguro. En los exámenes completos solo podrás escucharlo 2 veces; aquí, las que quieras.</div>
+
+<h2>Estrategias generales</h2>
+<ul>
+<li><b>Lee las preguntas antes</b> y subraya la palabra clave (<i>why, when, how did she feel, what does he suggest</i>).</li>
+<li><b>Primera escucha:</b> responde lo que puedas. <b>Segunda escucha:</b> confirma y resuelve las dudas.</li>
+<li><b>Distractores:</b> casi siempre se mencionan las tres opciones. Escucha hasta el final: <i>"I was going to… but in the end…"</i>, <i>"Actually, I've changed my mind"</i>, <i>"That's what I thought at first, but…"</i>.</li>
+<li>En las preguntas de opinión, distingue lo que dice <b>cada</b> hablante y si están <b>de acuerdo</b>: <i>"Exactly!", "I'm not so sure", "You've got a point"</i>.</li>
+</ul>
+
+<div class="tabs-root" id="listabs">
+<div class="tabs"><button>Parte 1</button><button>Parte 2</button><button>Parte 3</button><button>Parte 4</button></div>
+
+<section class="tabpanel">
+<h2>Parte 1 · Siete textos cortos</h2>
+<p><b>7 textos cortos</b> (diálogos o monólogos) con una pregunta cada uno. En el examen real las opciones son <b>dibujos</b>; aquí las tienes escritas. Preguntan por hechos concretos: horas, lugares, objetos, actividades, precios.</p>
+<div id="lp1"></div>
+</section>
+<section class="tabpanel">
+<h2>Parte 2 · Seis conversaciones</h2>
+<p><b>6 diálogos cortos</b> entre dos personas. Antes de cada uno oyes la situación (<i>You will hear two friends talking about a film</i>). La pregunta es sobre <b>opiniones, sentimientos, acuerdo o propósito</b>: <i>What do they agree about? How does the woman feel? Why is he calling?</i></p>
+<div id="lp2"></div>
+</section>
+<section class="tabpanel">
+<h2>Parte 3 · Completar notas</h2>
+<p><b>Una persona habla</b> (radio, guía, charla) y completas <b>6 huecos</b> con una o dos palabras, un número, una fecha o una hora. Las palabras que oyes son <b>exactamente</b> las que debes escribir, bien escritas.</p>
+<ul><li>Antes de escuchar, piensa qué tipo de palabra falta (¿nombre?, ¿número?, ¿lugar?).</li><li>Muchas veces oyes dos datos parecidos: <i>"It used to cost £20, but now it's £25"</i>.</li></ul>
+<div id="lp3"></div>
+</section>
+<section class="tabpanel">
+<h2>Parte 4 · Entrevista</h2>
+<p><b>Una entrevista larga</b> (radio, podcast) de unos 3–4 minutos. <b>6 preguntas</b> de 3 opciones en el orden del audio. Las respuestas casi nunca usan las mismas palabras que el audio: busca la <b>idea</b>.</p>
+<div id="lp4"></div>
+</section>
+</div>
+<p><a class="btn" href="speaking.html">Siguiente: Speaking →</a></p>
+</main>
+<script src="assets/app.js"></script>
+<script>
+const LP1 = [
+ {q:'What did the woman buy for her brother?',o:['a book','a T-shirt','a video game'],script:[['M','Did you get anything for Pete\'s birthday?'],['W','I was going to buy him a T-shirt, but I didn\'t know his size. I nearly got a video game, but he\'s got so many. So I got him a book about football.']]},
+ {q:'Where will they meet?',o:['outside the cinema','at the café','at the bus station'],script:[['W','Shall we meet at the bus station?'],['M','It\'s always so crowded there. What about the café?'],['W','It\'s closed on Sundays. Let\'s just meet outside the cinema.'],['M','OK, fine.']]},
+ {q:'What time does the man\'s train leave?',o:['10.45','10.15','11.15'],script:[['M','Excuse me, is the 10.15 to York on time?'],['W','I\'m afraid that one has been cancelled. The next one leaves at quarter to eleven.'],['M','Not 11.15? Great, that\'s better than I thought.']]},
+];
+const LP2 = [
+ {ctx:'You will hear two friends talking about a film they have just seen.',q:'What do they agree about?',o:['The ending was disappointing.','The actors were excellent.','It was too long.'],script:[['W','Well, I thought the actors were brilliant.'],['M','Really? I found the main character a bit boring. But that ending! It was so predictable.'],['W','I know. After two great hours, I expected something much more exciting at the end.']]},
+ {ctx:'You will hear a woman telling a friend about her new job.',q:'How does she feel about it?',o:['worried about the responsibility','bored by the work','annoyed about the hours'],script:[['W','The hours are fine and the work is interesting. It\'s just that I\'m in charge of twelve people now. If something goes wrong, it\'s my fault. I keep lying awake at night thinking about it.']]},
+ {ctx:'You will hear a boy calling his mother.',q:'Why is he calling?',o:['to ask for permission','to say he will be late','to ask her to pick him up'],script:[['M','Hi Mum. Jack\'s parents have invited me to stay for dinner and watch the match. Is that OK? I\'ll still be home by ten, and Jack\'s dad can drive me.']]},
+];
+const LP3 = {intro:'You will hear a guide talking to a group of visitors about a castle.',g:'W',head:'Ravenscroft Castle',script:`Good morning, everyone, and welcome to Ravenscroft Castle. The castle was built in 1285, although the tower you can see on your left was added about two hundred years later. Our tour today lasts ninety minutes. We'll start in the great hall, where you can see a famous collection of swords. Please don't take photos in the library, because the light can damage the old books. After the tour, you're welcome to visit the gardens, which are especially beautiful in spring. The café is next to the main gate and it serves homemade soup and cakes. Finally, if you'd like to come back in the summer, there's a medieval festival every year in August, with music and horse shows.`,
+ sents:['The castle was built in ___.','The tour lasts ___ minutes.','In the great hall there is a collection of ___.','Visitors can\'t take photos in the ___.','The café is next to the ___.','The festival takes place in ___.'],
+ ans:[['1285'],['90','ninety'],['swords'],['library'],['main gate','gate'],['august']]};
+const LP4 = {intro:'You will hear an interview with a young woman called Holly Barnes, who works as a zookeeper.',names:{M:'Interviewer',W:'Holly'},script:[
+ ['M','Holly, how did you become a zookeeper?'],['W','Well, I\'ve always loved animals, but I actually studied business at university. I only started at the zoo because I needed a summer job. After two weeks, I knew this was what I wanted to do.'],
+ ['M','What does a typical day look like?'],['W','People think we spend all day playing with the animals, but most of the job is cleaning! I start at seven, clean the enclosures, prepare food and check that everyone is healthy. The animals I work with are the giraffes.'],
+ ['M','What\'s the hardest part?'],['W','Probably the weather. In winter, being outside at seven in the morning when it\'s freezing isn\'t much fun. The animals are no problem – they\'re much easier than people sometimes!'],
+ ['M','Have you ever had a dangerous moment?'],['W','Once a giraffe kicked the door while I was inside. It didn\'t hurt me, but it taught me to always be careful. Giraffes look calm, but they\'re very strong.'],
+ ['M','What do you enjoy most?'],['W','When a baby is born. Last spring we had a baby giraffe, and I stayed all night to watch. It stood up after about an hour. I\'ll never forget that.'],
+ ['M','Any advice for young people who want to do your job?'],['W','Volunteer at an animal centre first. You\'ll find out quickly if you really like the work – especially the cleaning!']],
+ q:[{q:'Why did Holly start working at the zoo?',o:['She needed a temporary job.','She had studied animals at university.','A friend recommended it.']},
+ {q:'What does Holly say about her daily work?',o:['It is different from what people imagine.','She spends a lot of time with the public.','It is mostly feeding the animals.']},
+ {q:'What does Holly find most difficult?',o:['working outside in cold weather','dealing with the animals','getting up early']},
+ {q:'What did Holly learn from the incident with the giraffe?',o:['to pay attention at all times','that giraffes are aggressive','to never go inside the enclosure']},
+ {q:'What was special about last spring?',o:['She watched a giraffe being born.','She was given a new job.','She took care of a sick giraffe.']},
+ {q:'What advice does Holly give?',o:['Get some experience before choosing this career.','Study business at university.','Learn as much as possible about giraffes.']}]};
+document.addEventListener('DOMContentLoaded', () => {
+  practice($('#lp1'), 'l1', LP1, {args:[null]});
+  practice($('#lp2'), 'l1', LP2, {args:[null]});
+  practice($('#lp3'), 'l2', LP3, {args:[null]});
+  practice($('#lp4'), 'l4', LP4, {args:[null]});
+});
+</script>
+</body>
+</html>

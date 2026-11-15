@@ -53,7 +53,7 @@ l1:[
 {q:'What does the girl want to be?',o:['a journalist','a lawyer','a scientist'],script:[['M','Do you still want to be a lawyer like your mum?'],['W','No, I want to write. I\'d love to be a journalist. My brother\'s the scientist in the family.']]},
 {q:'When is the man\'s appointment?',o:['Friday morning','Friday afternoon','Thursday morning'],script:[['W','Can you come on Thursday morning?'],['M','I\'m working then. What about Friday?'],['W','We have a space at ten on Friday morning.'],['M','Perfect.']]},
 {q:'What will the boy wear to the party?',o:['a shirt and jeans','a suit','a T-shirt and shorts'],script:[['W','Are you wearing your suit to the party?'],['M','No, it\'s not that kind of party. But I can\'t wear shorts either. I\'ll just wear a shirt and jeans.']]},
-{q:'How many children does the woman have?',o:['three','two','four'],script:[['M','How many children have you got now?'],['W','Well, we had two, and then twins last year… no wait, just one baby. So three altogether.']]},
+{q:'How many children does the woman have?',o:['three','two','four'],script:[['M','How many children have you got now?'],['W','Well, we had two, and then our little girl was born last year. So three altogether.']]},
 {q:'What is the problem with the hotel room?',o:['The heating isn\'t working.','The TV is broken.','It is too small.'],script:[['M','Excuse me, I\'m in room 12. The room is fine and the TV works, but it\'s freezing. The heating doesn\'t seem to be on.']]}],
 l2:[
 {ctx:'You will hear two friends talking about a TV programme.',q:'What does the woman think of it?',o:['It is educational.','It is boring.','It is too long.'],script:[['M','Do you watch that nature programme?'],['W','Every week. I\'ve learnt so much about animals I\'d never heard of.']]},
